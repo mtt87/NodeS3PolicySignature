@@ -16,7 +16,6 @@ Create in the root `awsConfig.json` with these information:
 ```
 {
     "secret": "awsSecret1234567890",
-    "bucket":"your-bucket-name",
     "key":"awsKey"
 }
 ```
