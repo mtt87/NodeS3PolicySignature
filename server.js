@@ -6,8 +6,21 @@ var awsConfig = require('./awsConfig.json');
 
 app.use(cors());
 
-app.get('/policy', function(req, res, next) {
+app.get('/:bucket(apply|member|startup)', function(req, res, next) {
 
+  var bucketName;
+
+  switch (req.params.bucket) {
+    case 'apply':
+      bucketName = 'th-apply-files';
+      break;
+    case 'member':
+      bucketName = 'th-members';
+      break;
+    case 'startup':
+      bucketName = 'th-startups';
+      break;
+  }
 
   var expiration = new Date();
   expiration.setHours(expiration.getHours() + 1);
@@ -15,7 +28,7 @@ app.get('/policy', function(req, res, next) {
   var data = {
     expiration: expiration.toISOString(),
     conditions: [{
-        bucket: awsConfig.bucket
+        bucket: bucketName,
       },
       ["starts-with", "$key", ""], {
         acl: "public-read"
