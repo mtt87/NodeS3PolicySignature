@@ -1,9 +1,9 @@
 # Generate AWS S3 policy signature with Node.js for client-side uploads
 Generate temporary policy/signature to allow users to upload to S3 from the client-side where you can specify file limit or other type of rules.
 
-##Instructions
+## Instructions
 
-###Create a user with S3 permission
+### Create a user with S3 permission
  * Go into your `console.aws.amazon.com` and select `Identity and Access Management`(IAM)
  * Create a new user.  
  * Download or save your credentials.  
@@ -11,7 +11,7 @@ Generate temporary policy/signature to allow users to upload to S3 from the clie
  * Attach a policy and select `AmazonS3FullAccess`
 
 
-###Project credentials configuration
+### Project credentials configuration
 Create in the root `awsConfig.json` with these information:
 ```
 {
@@ -66,8 +66,8 @@ You need to add more permission and select "Everyone" and allow `List` and `Uplo
     </CORSRule>
 </CORSConfiguration>
 ```
-##Deploy
+## Deploy
 I personally use [PM2](https://github.com/Unitech/pm2) to deploy
 
-##TODO
+## TODO
  * Write about integration with Angular.js and `ng-file-upload`
